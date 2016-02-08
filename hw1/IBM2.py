@@ -125,4 +125,4 @@ if __name__ == "__main__":
 	ibm2.em_algorithm()
 	ibm2.predict_alignment()
 
-	sys.stdout.write(">> run time: %f sec \n" % (time.clock() - t0))
+	sys.stderr.write(">> run time: %f sec \n" % (time.clock() - t0))
