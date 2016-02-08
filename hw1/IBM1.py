@@ -13,7 +13,10 @@ class IBM1:
 	def read_corpus(self, opts):
 		sys.stderr.write(">> Reading corpus...\n")
 		bitext = [[sentence.strip().split() for sentence in pair.split(' ||| ')] for pair in open(opts.bitext)][:opts.num_sents]
-		
+		if opts.reverse:
+			for (n, (f, e)) in enumerate(bitext):
+				bitext[n][0], bitext[n][1] = bitext[n][1], bitext[n][0]
+
 		return bitext
 
 	def initialize_parameter(self):
@@ -69,6 +72,8 @@ if __name__ == "__main__":
 	optparser.add_option("-b", "--bitext", dest="bitext", default="data/dev-test-train.de-en", help="Parallel corpus (default data/dev-test-train.de-en)")
 	optparser.add_option("-i", "--iteration_number", dest="iteration_number", default=5, type="int", help="Number of iterations for EM algorithm (default=5)")
 	optparser.add_option("-n", "--num_sentences", dest="num_sents", default=sys.maxint, type="int", help="Number of sentences to use for training and alignment")
+	optparser.add_option("-r", "--reverse", dest="reverse", default=False, help="Reverse Translation Probability")
+
 	(opts, _) = optparser.parse_args()
 
 	t0=time.clock()
