@@ -1,3 +1,11 @@
+Usage:
+
+python IBM2.py -i 10 -n 100000 > ibm2.txt
+python IBM2.py -i 10 -n 100000 -r reverse > ibm2_reverse.txt
+python grow_diagonal.py ibm2.txt ibm2_reverse.txt > output.txt
+
+---------------------------------------------------------------
+
 There are three Python programs here (`-h` for usage):
 
  - `./align` aligns words using Dice's coefficient.
