@@ -104,6 +104,7 @@ def add(Q_j, q_prime, q, p):
 for f in input_sents:
     Q = defaultdict(list)
     n = len(f)
+    d = min(d, n / 2)
 
     #initialization
     #state q = (phrase, bit, r, alpha, lm_state)
