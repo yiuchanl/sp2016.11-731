@@ -111,7 +111,7 @@ for f in input_sents:
     q_0 = ("", [0] * n, 0, 0, lm.begin())
     Q[0].append(q_0)
 
-    print f
+    sys.stderr.write("%s\n" % ' '.join(f))
     all_possible_phrases = get_all_possible_phrases(n)
 
     #decoding
