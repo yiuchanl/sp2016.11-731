@@ -130,4 +130,4 @@ for f in input_sents:
     break
 
 end = time.time()
-print end - start, "seconds"
+sys.stderr.write("%f seconds\n" % (end - start))
