@@ -121,13 +121,12 @@ for f in input_sents:
             for p in ph(all_possible_phrases, q, d):
                 q_prime = next(q, p, n)
                 add(Q[sum(q_prime[1])], q_prime, q, p)
-
         if len(Q[i]) == 0:
             break
         for key, value in Q.iteritems():
-            print "Q_" + str(key), "size:", len(Q[key])
-        print sorted(Q[i], key=lambda x: x[3], reverse = True)[0:5]
-        print "=" * 50
+            sys.stderr.write("Q_%s size: %d\n" % (str(key), len(Q[key])))
+        #print sorted(Q[i], key=lambda x: x[3], reverse = True)[0:5]
+        sys.stderr.write("%s\n" % ("=" * 50))
     break
 
 end = time.time()
