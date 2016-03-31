@@ -127,7 +127,11 @@ for f in input_sents:
             sys.stderr.write("Q_%s size: %d\n" % (str(key), len(Q[key])))
         #print sorted(Q[i], key=lambda x: x[3], reverse = True)[0:5]
         sys.stderr.write("%s\n" % ("=" * 50))
-    break
+    if i == n:
+        best_sentence = sorted(Q[i], key=lambda x: x[3], reverse = True)[0][0]
+    else:
+        best_sentence = sorted(Q[i-1], key=lambda x: x[3], reverse = True)[0][0]
+    sys.stdout.write("%s\n" % (best_sentence))
 
 end = time.time()
 sys.stderr.write("%f seconds\n" % (end - start))
